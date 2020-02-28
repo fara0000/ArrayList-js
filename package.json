@@ -1,0 +1,19 @@
+{
+  "name": "hw_3_arraylist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fara0000/HW_3_ArrayList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fara0000/HW_3_ArrayList/issues"
+  },
+  "homepage": "https://github.com/fara0000/HW_3_ArrayList#readme"
+}
