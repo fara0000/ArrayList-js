@@ -1,4 +1,4 @@
-describe ('HW_3', function() {
+describe ('HW_4', function() {
     describe ('ArrayList', function() {
         describe('Initialization (init)', function() {
             it('should be defined', function() {
@@ -112,6 +112,67 @@ describe ('HW_3', function() {
                 assert.deepEqual(actual, expArr);
                 assert.deepEqual(actual.length, expSize);
             });
+            
+            it('should return [3, 4], size = 2, ([4])', function() {
+                const array = [4];
+                const element = 3;
+                const expArr = [3, 4];
+                const expSize = 2;
+                ArrayList.init(array);
+
+                const actual = ArrayList.addFirstElm(element);
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual.length, expSize);
+            });
+
+            it('should return [4], size = 1, ([])', function() {
+                const array = [];
+                const element = 4;
+                const expArr = [4];
+                const expSize = 1;
+                ArrayList.init(array);
+
+                const actual = ArrayList.addFirstElm(element);
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual.length, expSize);
+            });
+
+            it('should return warning  [] (null)', function() {
+                const arr = null;
+                const expArr = 'Please check your input';
+                const expSize = 'Please check your input';
+
+                const actual = ArrayList.addFirstElm(arr);
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual, expSize)
+            });
+
+            it('should return warning  [] (undefined)', function() {
+                const arr = undefined;
+                const expArr = 'Please check your input';
+                const expSize = 'Please check your input';
+
+                const actual = ArrayList.addFirstElm(arr);
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual, expSize)
+            });
+
+            it('should return [] ([])', function() {
+                const arr = [];
+                const arrElm = [];
+                const expArr = [[]];
+                const expSize = 1;
+                ArrayList.init(arr);
+
+                const actual = ArrayList.addFirstElm(arrElm);
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual.length, expSize)
+            });
         }); 
         describe('clear', function() {
             it('should be defined', function() {
@@ -156,6 +217,56 @@ describe ('HW_3', function() {
 
                 assert.deepEqual(actual, expected);
             });
+            it('should warn the user to [ ] (undefined)', function() {
+                const arg = undefined;
+                const expArr = 'Please input an array';
+
+                const actual = ArrayList.checkForIncludes(arg);
+
+                assert.deepEqual(actual, expArr);
+            });
+
+            it('should warn the user to [ ] (null)', function() {
+                const arg = null;
+                const expArr = 'Please input an array';
+
+                const actual = ArrayList.checkForIncludes(arg);
+
+                assert.deepEqual(actual, expArr);
+            });
+
+            it('should return true, size = 2, ([3, 4])', function() {
+                const array = [3, 4];
+                const element = 4;
+                const expArr = 'true';
+                ArrayList.init(array);
+
+                const actual = ArrayList.checkForIncludes(element);
+
+                assert.deepEqual(actual, expArr);
+            });
+
+            it('should return false, size = 1, ([4])', function() {
+                const array = [4];
+                const element = 6;
+                const expArr = 'false';
+                ArrayList.init(array);
+
+                const actual = ArrayList.checkForIncludes(element);
+
+                assert.deepEqual(actual, expArr);
+            });
+
+            it('should return false, size = 5, ([2, 4, 5, 6, 7])', function() {
+                const array = [2, 4, 5, 6, 7];
+                const element = 10;
+                const expArr = 'false';
+                ArrayList.init(array);
+
+                const actual = ArrayList.checkForIncludes(element);
+
+                assert.deepEqual(actual, expArr);
+            });
         });
         describe('changeToString(toString)', function() {
             it('should be defined', function() {
@@ -177,7 +288,7 @@ describe ('HW_3', function() {
                 assert.isDefined(ArrayList.reverse, 'Changing process has been defined');
             });
 
-            it('should return array [1, 2, 3, 4], size = 4 ,([4, 3, 2, 1]) ', function() {
+            it('should return array [1, 2, 3, 4], size = 4, ([4, 3, 2, 1]) ', function() {
                 const arr = [1, 2, 3, 4]
                 const expArr = [4, 3, 2, 1];  
                 const expSize = 4              
@@ -186,12 +297,47 @@ describe ('HW_3', function() {
                 const actual = ArrayList.reverse(arr);
 
                 assert.deepEqual(actual, expArr);
-                assert.deepEqual(actual.length,expSize)
+                assert.deepEqual(actual.length, expSize)
+            });
+            it('should return [4, 3, 2, 6, 5], size = 5, ([5, 6, 2, 3, 4])', function() {
+                const array = [5, 6, 2, 3, 4];
+                const expArr = [4, 3, 2, 6, 5];
+                const expSize = 5;
+                ArrayList.init(array);
+
+                const actual = ArrayList.reverse();
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual.length, expSize);
+            });
+
+            it('should return [4, 3], size = 2, ([3, 4])', function() {
+                const array = [3, 4];
+                const expArr = [4, 3];
+                const expSize = 2;
+                ArrayList.init(array);
+
+                const actual = ArrayList.reverse();
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual.length, expSize);
+            });
+
+            it('should return [4], size = 1, ([4])', function() {
+                const array = [4];
+                const expArr = [4];
+                const expSize = 1;
+                ArrayList.init(array);
+
+                const actual = ArrayList.reverse();
+
+                assert.deepEqual(actual, expArr);
+                assert.deepEqual(actual.length, expSize);
             });
         });  
-        describe('checkForIndexOf(indexOf)', function() {
+        describe('checkForIndex(indexOf)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.checkForIndexOf, 'checking process has been defined');
+                assert.isDefined(ArrayList.checkForIndex, 'checking process has been defined');
             });
 
             it('should return array [1, 2, 3, 4], element = 4, (3)', function() {
@@ -200,9 +346,38 @@ describe ('HW_3', function() {
                 expected = 3;               
                 ArrayList.init(arr);
 
-                const actual = ArrayList.checkForIndexOf(elm);
+                const actual = ArrayList.checkForIndex(elm);
 
                 assert.deepEqual(actual, expected);
+            });
+
+            it('should warn the user to [ ] (undefined)', function() {
+                const arg = undefined;
+                const expArr = 'Please input an array';
+
+                const actual = ArrayList.checkForIndex(arg);
+
+                assert.deepEqual(actual, expArr);
+            });
+
+            it('should warn the user to [ ] (null)', function() {
+                const arg = null;
+                const expArr = 'Please input an array';
+
+                const actual = ArrayList.checkForIndex(arg);
+
+                assert.deepEqual(actual, expArr);
+            });
+
+            it('should return -1, size = 5, ([2, 4, 5, 6, 7])', function() {
+                const array = [2, 4, 5, 6, 7];
+                const element = 10;
+                const expArr = -1;
+                ArrayList.init(array);
+
+                const actual = ArrayList.checkForIndex(element);
+
+                assert.deepEqual(actual, expArr);
             });
         });                                                                                                                                                                                                                                                                        
     });
