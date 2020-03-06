@@ -2,7 +2,7 @@ describe ('HW_4', function() {
     describe ('ArrayList', function() {
         describe('Initialization (init)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.init, 'Initialization process has been defined');
+                assert.isDefined(ArrayList.prototype.init, 'Initialization process has been defined');
             });
 
             it('should be Warning (undefined)', function() {
@@ -10,7 +10,7 @@ describe ('HW_4', function() {
                 const expSize = 'Booom try again!';
                 const expArr = 'Booom try again!';
 
-                const actual = ArrayList.init(arr);
+                const actual = ArrayList.prototype.init(arr);
 
                 assert.deepEqual(actual, expArr, expSize);
             });
@@ -20,14 +20,27 @@ describe ('HW_4', function() {
                 const expSize = 'Booom try again!';
                 const expArr = 'Booom try again!';
 
-                const actual = ArrayList.init(arr);
+                const actual = ArrayList.prototype.init(arr);
 
                 assert.deepEqual(actual, expArr, expSize);
+            });
+
+            it('should return ([1, 2, 3])', function() {
+                const array = [1, 2, 3];
+                const expArr = [1, 2, 3];
+                const expSize = 3;
+                
+
+                const actual = ArrayList.prototype.init(array);
+
+                assert.deepEqual(actual, expArr)
+                
+                assert.deepEqual(actual.length, expSize)
             });
         }); 
         describe('addAtEnd (push)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.addAtEnd, 'Adding process has been defined');
+                assert.isDefined( ArrayList.prototype.addAtEnd, 'Adding process has been defined');
             });
 
             it('should be Warning (undefined)', function() {
@@ -35,7 +48,7 @@ describe ('HW_4', function() {
                 const expSize = 'Booom try again!';
                 const expArr = 'Booom try again!';
 
-                const actual = ArrayList.addAtEnd(arr);
+                const actual = ArrayList.prototype.addAtEnd(arr);
 
                 assert.deepEqual(actual, expArr, expSize);
             });
@@ -45,7 +58,7 @@ describe ('HW_4', function() {
                 const expSize = 'Booom try again!';
                 const expArr = 'Booom try again!';
 
-                const actual = ArrayList.addAtEnd(arr);
+                const actual = ArrayList.prototype.addAtEnd(arr);
 
                 assert.deepEqual(actual, expArr, expSize);
             });
@@ -55,49 +68,51 @@ describe ('HW_4', function() {
                 const elm = 5;
                 const expArr = [1, 2, 3, 4, 5];
                 const expSize = 5;                
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.addAtEnd(elm);
+                const actual = ArrayList.prototype.addAtEnd(elm);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
         });    
         describe('deleteLastElm (pop)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.deleteLastElm, 'Deleting last element process has been defined');
+                assert.isDefined(ArrayList.prototype.deleteLastElm, 'Deleting last element process has been defined');
             });
 
             it('should return array [1, 2, 3, 4], ([4])', function() {
                 const arr = [1, 2, 3, 4];
-                const expArr = 4;
-                ArrayList.init(arr);
+                const expArr = 4 ;
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.deleteLastElm(arr);
+                const actual = ArrayList.prototype.deleteLastElm(arr);
 
                 assert.deepEqual(actual, expArr);
             });
         }); 
         describe('deleteFirstElm (shift)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.deleteFirstELm, 'Deleting first element process has been defined');
+                assert.isDefined(ArrayList.prototype.deleteFirstElm , 'Deleting first element process has been defined');
             });
 
             it('should return array [1, 2, 3, 4], element = 1 , size = 3, ([2, 3, 4])', function() {
                 const arr = [1, 2, 3, 4];
                 const expArr = [2, 3, 4];
                 const expSize = 3;                
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.deleteFirstELm(arr);
+                const actual = ArrayList.prototype.deleteFirstELm;
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
         }); 
         describe('addFirstElm (unshift)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.addFirstElm, 'Adding first element process has been defined');
+                assert.isDefined(ArrayList.prototype.addFirstElm, 'Adding first element process has been defined');
             });
 
             it('should return array [ 2, 3, 4], element = 1, size = 4, ([1, 2, 3, 4])', function() {
@@ -105,9 +120,9 @@ describe ('HW_4', function() {
                 const elm = 1;
                 const expArr = [1, 2, 3, 4];
                 const expSize = 4;                
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.addFirstElm(elm);
+                const actual = ArrayList.prototype.addFirstElm(elm);
 
                 assert.deepEqual(actual, expArr);
                 assert.deepEqual(actual.length, expSize);
@@ -118,11 +133,12 @@ describe ('HW_4', function() {
                 const element = 3;
                 const expArr = [3, 4];
                 const expSize = 2;
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.addFirstElm(element);
+                const actual = ArrayList.prototype.addFirstElm(element);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
 
@@ -131,11 +147,12 @@ describe ('HW_4', function() {
                 const element = 4;
                 const expArr = [4];
                 const expSize = 1;
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.addFirstElm(element);
+                const actual = ArrayList.prototype.addFirstElm(element);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
 
@@ -144,9 +161,10 @@ describe ('HW_4', function() {
                 const expArr = 'Please check your input';
                 const expSize = 'Please check your input';
 
-                const actual = ArrayList.addFirstElm(arr);
+                const actual = ArrayList.prototype.addFirstElm(arr);
 
                 assert.deepEqual(actual, expArr);
+               
                 assert.deepEqual(actual, expSize)
             });
 
@@ -155,9 +173,10 @@ describe ('HW_4', function() {
                 const expArr = 'Please check your input';
                 const expSize = 'Please check your input';
 
-                const actual = ArrayList.addFirstElm(arr);
+                const actual = ArrayList.prototype.addFirstElm(arr);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual, expSize)
             });
 
@@ -166,54 +185,57 @@ describe ('HW_4', function() {
                 const arrElm = [];
                 const expArr = [[]];
                 const expSize = 1;
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.addFirstElm(arrElm);
+                const actual = ArrayList.prototype.addFirstElm(arrElm);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize)
             });
         }); 
         describe('clear', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.clear, 'Clearing has been defined');
+                assert.isDefined(ArrayList.prototype.clear, 'Clearing has been defined');
             });
 
             it('should return array [1, 2, 3, 4], size = 0, ([])', function() {
                 const arr = [1, 2, 3, 4];
                 const expArr = [];
                 const expSize = 0;                
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.clear(arr);
+                const actual = ArrayList.prototype.clear(arr);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
             it('should return array [], size = 0, ([])', function() {
                 const arr = [];
                 const expArr = [];
                 const expSize = 0;                
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.clear(arr);
+                const actual = ArrayList.prototype.clear(arr);
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
         });     
-        describe('checkForIncludes(includes)', function() {
+        describe('checkForInclude(includes)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.checkForIncludes, 'Including process has been defined');
+                assert.isDefined(ArrayList.prototype.checkForInclude, 'Including process has been defined');
             });
 
             it('should return array [1, 2, 3, 4], element = 4, ([])', function() {
                 const arr = [1, 2, 3, 4];
                 const elm = 4;
-                expected = 'true';               
-                ArrayList.init(arr);
+                const expected = 'true';               
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.checkForIncludes(elm);
+                const actual = ArrayList.prototype.checkForInclude(elm);
 
                 assert.deepEqual(actual, expected);
             });
@@ -221,7 +243,7 @@ describe ('HW_4', function() {
                 const arg = undefined;
                 const expArr = 'Please input an array';
 
-                const actual = ArrayList.checkForIncludes(arg);
+                const actual = ArrayList.prototype.checkForInclude(arg);
 
                 assert.deepEqual(actual, expArr);
             });
@@ -230,7 +252,7 @@ describe ('HW_4', function() {
                 const arg = null;
                 const expArr = 'Please input an array';
 
-                const actual = ArrayList.checkForIncludes(arg);
+                const actual = ArrayList.prototype.checkForInclude(arg);
 
                 assert.deepEqual(actual, expArr);
             });
@@ -239,9 +261,9 @@ describe ('HW_4', function() {
                 const array = [3, 4];
                 const element = 4;
                 const expArr = 'true';
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.checkForIncludes(element);
+                const actual = ArrayList.prototype.checkForInclude(element);
 
                 assert.deepEqual(actual, expArr);
             });
@@ -250,9 +272,9 @@ describe ('HW_4', function() {
                 const array = [4];
                 const element = 6;
                 const expArr = 'false';
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.checkForIncludes(element);
+                const actual = ArrayList.prototype.checkForInclude(element);
 
                 assert.deepEqual(actual, expArr);
             });
@@ -261,40 +283,40 @@ describe ('HW_4', function() {
                 const array = [2, 4, 5, 6, 7];
                 const element = 10;
                 const expArr = 'false';
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.checkForIncludes(element);
+                const actual = ArrayList.prototype.checkForInclude(element);
 
                 assert.deepEqual(actual, expArr);
             });
         });
         describe('changeToString(toString)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.changeToString, 'Changing process has been defined');
+                assert.isDefined(ArrayList.prototype.changeToString, 'Changing process has been defined');
             });
 
             it('should return String  `(1, 2, 3, 4)` ', function() {
                 const arr = [1, 2, 3, 4]
-                const expArr =  '1,2,3,4' ;                
-                ArrayList.init(arr);
+                const expArr =  '\'[1,2,3,4]\'';                
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.changeToString(arr);
+                const actual = ArrayList.prototype.changeToString(arr);
 
                 assert.deepEqual(actual, expArr); 
             });
         }); 
         describe('reverse(reverse)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.reverse, 'Changing process has been defined');
+                assert.isDefined(ArrayList.prototype.reverse, 'Changing process has been defined');
             });
 
             it('should return array [1, 2, 3, 4], size = 4, ([4, 3, 2, 1]) ', function() {
                 const arr = [1, 2, 3, 4]
                 const expArr = [4, 3, 2, 1];  
                 const expSize = 4              
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.reverse(arr);
+                const actual = ArrayList.prototype.reverse(arr);
 
                 assert.deepEqual(actual, expArr);
                 assert.deepEqual(actual.length, expSize)
@@ -303,11 +325,12 @@ describe ('HW_4', function() {
                 const array = [5, 6, 2, 3, 4];
                 const expArr = [4, 3, 2, 6, 5];
                 const expSize = 5;
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.reverse();
+                const actual = ArrayList.prototype.reverse();
 
                 assert.deepEqual(actual, expArr);
+                
                 assert.deepEqual(actual.length, expSize);
             });
 
@@ -315,9 +338,9 @@ describe ('HW_4', function() {
                 const array = [3, 4];
                 const expArr = [4, 3];
                 const expSize = 2;
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.reverse();
+                const actual = ArrayList.prototype.reverse();
 
                 assert.deepEqual(actual, expArr);
                 assert.deepEqual(actual.length, expSize);
@@ -327,9 +350,9 @@ describe ('HW_4', function() {
                 const array = [4];
                 const expArr = [4];
                 const expSize = 1;
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.reverse();
+                const actual = ArrayList.prototype.reverse();
 
                 assert.deepEqual(actual, expArr);
                 assert.deepEqual(actual.length, expSize);
@@ -337,16 +360,16 @@ describe ('HW_4', function() {
         });  
         describe('checkForIndex(indexOf)', function() {
             it('should be defined', function() {
-                assert.isDefined(ArrayList.checkForIndex, 'checking process has been defined');
+                assert.isDefined(ArrayList.prototype.checkForIndex, 'checking process has been defined');
             });
 
             it('should return array [1, 2, 3, 4], element = 4, (3)', function() {
                 const arr = [1, 2, 3, 4];
                 const elm = 4;
                 expected = 3;               
-                ArrayList.init(arr);
+                ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.checkForIndex(elm);
+                const actual = ArrayList.prototype.checkForIndex(elm);
 
                 assert.deepEqual(actual, expected);
             });
@@ -355,7 +378,7 @@ describe ('HW_4', function() {
                 const arg = undefined;
                 const expArr = 'Please input an array';
 
-                const actual = ArrayList.checkForIndex(arg);
+                const actual = ArrayList.prototype.checkForIndex(arg);
 
                 assert.deepEqual(actual, expArr);
             });
@@ -364,7 +387,7 @@ describe ('HW_4', function() {
                 const arg = null;
                 const expArr = 'Please input an array';
 
-                const actual = ArrayList.checkForIndex(arg);
+                const actual = ArrayList.prototype.checkForIndex(arg);
 
                 assert.deepEqual(actual, expArr);
             });
@@ -373,9 +396,9 @@ describe ('HW_4', function() {
                 const array = [2, 4, 5, 6, 7];
                 const element = 10;
                 const expArr = -1;
-                ArrayList.init(array);
+                ArrayList.prototype.init(array);
 
-                const actual = ArrayList.checkForIndex(element);
+                const actual = ArrayList.prototype.checkForIndex(element);
 
                 assert.deepEqual(actual, expArr);
             });
