@@ -97,18 +97,18 @@ describe ('HW_4', function() {
                 assert.isDefined(ArrayList.prototype.deleteFirstElm , 'Deleting first element process has been defined');
             });
 
-            it('should return array [1, 2, 3, 4], element = 1 , size = 3, ([2, 3, 4])', function() {
-                const arr = [1, 2, 3, 4];
-                const expArr = [2, 3, 4];
-                const expSize = 3;                
+           it('should return  array [1, 2, 3, 4], element = 1 , size = 3, ([2, 3, 4])', function() {
+                const arr = [1,2,3,4];
+                const expArr = [2,3,4];
+                const expSize = 3;
                 ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.prototype.deleteFirstELm;
-
+                const actual = ArrayList.prototype.deleteFirstElm();
+                
                 assert.deepEqual(actual, expArr);
                 
                 assert.deepEqual(actual.length, expSize);
-            });
+           });
         }); 
         describe('addFirstElm (unshift)', function() {
             it('should be defined', function() {
@@ -164,7 +164,7 @@ describe ('HW_4', function() {
                 const actual = ArrayList.prototype.addFirstElm(arr);
 
                 assert.deepEqual(actual, expArr);
-               
+            
                 assert.deepEqual(actual, expSize)
             });
 
@@ -199,25 +199,25 @@ describe ('HW_4', function() {
                 assert.isDefined(ArrayList.prototype.clear, 'Clearing has been defined');
             });
 
-            it('should return array [1, 2, 3, 4], size = 0, ([])', function() {
-                const arr = [1, 2, 3, 4];
+            it('should return array [], size = 0, ([])', function() {
+                const arr = [];
                 const expArr = [];
-                const expSize = 0;                
+                const expSize = 0;
                 ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.prototype.clear(arr);
+                const actual = ArrayList.prototype.clear()
 
                 assert.deepEqual(actual, expArr);
                 
                 assert.deepEqual(actual.length, expSize);
             });
-            it('should return array [], size = 0, ([])', function() {
-                const arr = [];
+            it('should return array [1, 2, 3, 4], size = 0, ([])', function() {
+                const arr = [1, 2, 3, 4];
                 const expArr = [];
-                const expSize = 0;                
+                const expSize = 0;
                 ArrayList.prototype.init(arr);
 
-                const actual = ArrayList.prototype.clear(arr);
+                const actual = ArrayList.prototype.clear()
 
                 assert.deepEqual(actual, expArr);
                 

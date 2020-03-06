@@ -1,9 +1,9 @@
-function ArrayList(){
+function ArrayList() {
     this.array = [];
     this.size = 0;
 }
 
-ArrayList.prototype.init = function(arr){
+ArrayList.prototype.init = function(arr) {
     if(!arr) {
         return 'Booom try again!';
     }
@@ -13,7 +13,7 @@ ArrayList.prototype.init = function(arr){
     return this.array;
 }
 
-ArrayList.prototype.addAtEnd = function(myArray){ //push
+ArrayList.prototype.addAtEnd = function(myArray) { //push
     if((!myArray)) {
         return 'Booom try again!';
     }
@@ -24,27 +24,29 @@ ArrayList.prototype.addAtEnd = function(myArray){ //push
     return arr;
 }
 
-ArrayList.prototype.deleteLastElm = function(){ //pop
+ArrayList.prototype.deleteLastElm = function() { //pop
     const arr = this.array;
     arr.length === arr;
+    
     return arr.length
 }
 
-ArrayList.prototype.deleteFirstElm = function(){ //shift
+ArrayList.prototype.deleteFirstElm = function() { //shift
 
-    const arr = this.array;
-    let a = [];
-        
-    for(i = 1; i < arr.length; i++) {
-        a[i - 1] = arr[i]
-    }
-    this.array = a
-    this.size -= 1;
+    const array = this.array;
+    let deleted = [];
     
-    return arr;
+    for (let i = 1; i < array.length; i++) {
+        deleted[i-1] = array[i] 
+    };
+
+    this.array = deleted;
+    this.size = this.size - 1;
+
+    return this.array;
 }
 
-ArrayList.prototype.addFirstElm = function(addFirst){ //unshift
+ArrayList.prototype.addFirstElm = function(addFirst) { //unshift
     if(!addFirst){
         return 'Please check your input';
     } 
@@ -63,12 +65,14 @@ ArrayList.prototype.addFirstElm = function(addFirst){ //unshift
 ArrayList.prototype.clear = function() { //clear
     this.array = [];
     this.size = 0;
+    
     return this.array
 }
 
-ArrayList.prototype.checkForInclude = function(elm) { //include
+ArrayList.prototype.checkForInclude = function(elm) { //includes
     if(!elm) return 'Please input an array';
     const arr = this.array;
+    
 
     for(i = 0; i < arr.length; i++) {
         
@@ -76,10 +80,10 @@ ArrayList.prototype.checkForInclude = function(elm) { //include
             
             return 'true';
         }
-        return 'false';
+        
     }
 
-    return arr;
+    return 'false';
 }
 
 ArrayList.prototype.changeToString = function() { //toString
@@ -101,7 +105,7 @@ ArrayList.prototype.checkForIndex = function(elm) { //indexOf
     }
 
     return -1;
-}
+}   
 
 ArrayList.prototype.reverse = function() {
     const arr = this.array;
@@ -112,6 +116,7 @@ ArrayList.prototype.reverse = function() {
     }
     this.array = array;
     this.size = array.length;
+    
     return array;
 }
 
@@ -120,6 +125,10 @@ testArray.init([1,2,3,4]);
 console.log(testArray);
 console.log(testArray.checkForInclude(undefined));
 console.log(testArray);
+console.log(testArray.deleteFirstElm());
+console.log(testArray);
+
+
 
 
 
